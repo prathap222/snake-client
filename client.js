@@ -6,15 +6,16 @@ const connect = function() {
     port: 50541
   });
 
+  conn.setEncoding('utf8'); //interpret data as txt
+  conn.write(`spp`);
+
   conn.on('data', (data) => {
-    console.log(data);
+    console.log("Successfully connected to game server" ,data);
   })
 
-  conn.setEncoding('utf8'); //interpret data as txt
+
 
   return conn;
 };
 
-module.exports = {
-  connect
-};
+module.exports = connect;
